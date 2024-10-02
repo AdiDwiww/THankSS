@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Terima Kasih</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff69b4;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .flower {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            animation: bloom 4s ease-in-out infinite;
+        }
+        .flower::before,
+        .flower::after {
+            content: '';
+            position: absolute;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .flower::before {
+            width: 70%;
+            height: 70%;
+        }
+        .flower::after {
+            width: 40%;
+            height: 40%;
+            background-color: #ffff00;
+        }
+        @keyframes bloom {
+            0%, 100% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Terima Kasih!</h1>
+    </div>
+
+    <script>
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.left = Math.random() * window.innerWidth + 'px';
+            flower.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 4000);
+        }
+
+        setInterval(createFlower, 300);
+    </script>
+</body>
+</html>
